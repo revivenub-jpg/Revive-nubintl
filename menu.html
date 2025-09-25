@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu | Revive NUB</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff0000, #ff6a00);
+      min-height: 100vh;
+      color: white;
+    }
+
+      /* Floating Navbar */
+nav {
+  position: fixed;          /* makes it float */
+  top: 20px;                /* distance from top */
+  left: 85%;                /* center horizontally */
+  transform: translateX(-50%); /* perfect centering */
+  
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;      /* rounded pill look */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  min-width: 250px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000; /* stays on top of other elements */
+}
+
+nav .logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+nav .menu {
+  display: flex;
+  gap: 1rem;
+}
+
+nav .menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav .menu a:hover {
+  text-decoration: underline;
+}
+
+
+    /* Floating Logout Button */
+#logoutBtn {
+  position: fixed;
+  top: 1050%;
+  right: 60px;
+  background: linear-gradient(135deg, #ff0000, #ff6a00);
+  padding: 12px 18px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+
+#logoutBtn:hover {
+  transform: scale(1.05);
+}
+
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav .menu {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav .menu a:hover {
+      text-decoration: underline;
+    }
+
+    /* Welcome Section */
+    .welcome {
+      text-align: center;
+      margin: 2rem auto;
+    }
+
+    .welcome img {
+      height: 120px;
+      margin-bottom: 1rem;
+    }
+
+    .welcome h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .welcome p {
+      font-size: 1.1rem;
+    }
+
+    /* Page Title */
+    h1 {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 2rem;
+    }
+
+    /* Menu Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    .card {
+      background: white;
+      color: #333;
+      padding: 2rem 1rem;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    }
+
+    .card img {
+      height: 100px;
+      width: auto;
+      margin-bottom: 1rem;
+    }
+
+    .card h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .card button {
+      margin-top: 1rem;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #ff0000, #ff6a00);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    .card button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Revive NUB</div>
+    <div class="menu">
+      <a href="home.html">Home</a>
+      <a href="#" id="logoutBtn">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Title -->
+  <h1>Menu</h1>
+
+  <!-- Menu Options -->
+  <div class="cards">
+    <div class="card" onclick="location.href='rdtc-reg.html'">
+      <img src="RDTC- Graduation.jpg" alt="RTC Registration">
+      <h2>RTC Registration</h2>
+      <p>Register for RDTC programs and events</p>
+      <button>Open</button>
+    </div>
+
+    <div class="card" onclick="location.href='audiobible Resource.html'">
+      <img src="Gallery website.jpg" alt="Audio Bible">
+      <h2>Media Resources</h2>
+      <p>Listen to the Word of God anytime</p>
+      <button>Open</button>
+    </div>
+
+    <div class="card" onclick="location.href='about.html'">
+      <img src="Equip Training Center.jpg" alt="About Us">
+      <h2>About 
+        Us</h2>
+      <p>Learn more about Revive NUB</p>
+      <button>Open</button>
+    </div>
+
+    <div class="card" onclick="location.href='donate.html'">
+      <img src="file_000000003ecc620a8c3b1a4dc55f6696.png" alt="Donation">
+      <h2>Donation</h2>
+      <p>Support the ministry with your gift</p>
+      <button>Donate</button>
+    </div>
+  </div>
+
+  <!-- Firebase logout -->
+  <script type="module">
+    import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC3hDuyRtWQ9exNSGOAXqldc6HCkX49rH4",
+      authDomain: "revive-nub-etc.firebaseapp.com",
+      projectId: "revive-nub-etc",
+      storageBucket: "revive-nub-etc.appspot.com",
+      messagingSenderId: "667364246928",
+      appId: "1:667364246928:web:57926a6d871032a8019f15",
+      measurementId: "G-HC1C5KJ127"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const logoutBtn = document.getElementById("logoutBtn");
+    logoutBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      await signOut(auth);
+      alert("You have logged out");
+      window.location.href = "index.html"; // back to login
+    });
+  </script>
+</body>
+</html>

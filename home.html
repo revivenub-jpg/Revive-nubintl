@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home | Revive NUB</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff0000, #ff6a00);
+      min-height: 100vh;
+      color: white;
+    }
+
+   /* Floating Navbar */
+nav {
+  position: fixed;          /* makes it float */
+  top: 20px;                /* distance from top */
+  left: 85%;                /* center horizontally */
+  transform: translateX(-50%); /* perfect centering */
+  
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;      /* rounded pill look */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  min-width: 250px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000; /* stays on top of other elements */
+}
+
+nav .logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+nav .menu {
+  display: flex;
+  gap: 1rem;
+}
+
+nav .menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav .menu a:hover {
+  text-decoration: underline;
+}
+
+
+    /* Floating Logout Button */
+#logoutBtn {
+  position: fixed;
+  top: 1050%;
+  right: 60px;
+  background: linear-gradient(135deg, #ff0000, #ff6a00);
+  padding: 12px 18px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+
+#logoutBtn:hover {
+  transform: scale(1.05);
+}
+
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav .menu {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav .menu a:hover {
+      text-decoration: underline;
+    }
+
+    /* Welcome Section */
+    .welcome {
+      text-align: center;
+      margin: 2rem auto;
+    }
+
+    .welcome img {
+      height: 120px;
+      margin-bottom: 1rem;
+    }
+
+    .welcome h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .welcome p {
+      font-size: 1.1rem;
+    }
+
+    /* Verse Section */
+    .verse {
+      background: rgba(255,255,255,0.9);
+      color: #050000;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      border-radius: 12px;
+      font-style: bold italic ;
+      font-size: 1.2rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+ .images {
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+.images img,
+.images video {
+  height: 200px;        /* same height for consistency */
+  width: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  object-fit: cover;
+  margin-bottom: 100px  ;
+}
+
+
+
+    /* Responsive tweak */
+    @media (max-width: 600px) {
+      .welcome h1 {
+        font-size: 1.5rem;
+      }
+      .verse {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Revive NUB</div>
+    <div class="menu">
+      <a href="menu.html">Menu</a>
+     
+    </div>
+    <div>
+         <a href="logout.html" id="logoutBtn">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Welcome -->
+  <div class="welcome">
+    <img src="revive log.png" alt="Logo">
+    <h1>Welcome to Revive NUB</h1>
+    <p>Revealing Jesus, Rebuilding Nations"</p>
+  </div>
+
+  <!-- Verse -->
+  <div class="verse">
+    “To reveal Jesus to dieing World,
+    To be an Extension, Expression, and Experience of him to all men, to the aim that men
+    To redeem men Through Strategic Outreaches
+    To repair men Through Deep encounters in his presence in fellowship
+    To Rebuild men through Constructive balanced discipleship.
+    <br><br>
+    — Ezra 9:9
+  </div>
+
+  <!-- Images -->
+<div class="images">
+  <img src="Equip Training Center.jpg" alt="Image 1">
+  <img src="Outreach picture.jpg" alt="Image 2">
+
+  <!-- Video in between -->
+  <video controls>
+    <source src="V9Crop_compress_103242.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <img src="RDTC- Graduation.jpg" alt="Image 3">
+  <img src="fellowship.jpg" alt="Image 4">
+</div>
+
+  <!-- Firebase logout -->
+  <script type="module">
+    import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC3hDuyRtWQ9exNSGOAXqldc6HCkX49rH4",
+      authDomain: "revive-nub-etc.firebaseapp.com",
+      projectId: "revive-nub-etc",
+      storageBucket: "revive-nub-etc.appspot.com",
+      messagingSenderId: "667364246928",
+      appId: "1:667364246928:web:57926a6d871032a8019f15",
+      measurementId: "G-HC1C5KJ127"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const logoutBtn = document.getElementById("logoutBtn");
+    logoutBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      await signOut(auth);
+      alert("You have logged out");
+      window.location.href = "index.html"; // back to login
+    });
+  </script>
+</body>
+</html>

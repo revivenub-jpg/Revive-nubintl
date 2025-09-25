@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RDTC-REG | Revive NUB</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff0000, #ff6a00);
+      min-height: 100vh;
+      color: white;
+    }
+    header {
+       margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff0000, #ff6a00);
+      min-height: 10vh;
+      color: white;
+      text-align: center;
+    }
+    .RDTC-25 {
+      display: block;
+      margin: 18px auto;
+      max-width: 320px;
+      border-radius: 8px;
+    }
+    .intro-text {
+      max-width: 920px;
+      margin: 18px auto;
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+    .form-container {
+      max-width: 700px;
+      margin: 20px auto 60px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 6px 18px rgba(0,0,0,0.08);
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 14px;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: 600;
+      color: #333;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    textarea { min-height: 100px; resize: vertical; }
+    .course-detail {
+      margin-top: 16px;
+      padding: 14px;
+      background: #f9f9f9;
+      border: 1px solid #e6e6e6;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #333;
+    }
+    .course-detail h3 { color: #2c3e50; margin-top: 0; }
+    .course-detail ul { margin: 6px 0 12px 18px; }
+    .course-detail p { margin: 6px 0; }
+    button {
+      margin-top: 16px;
+      width: 100%;
+      padding: 12px;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff0000, #ff6a00);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    button:hover { background: #1f5f86; }
+    @media (max-width:720px){
+      .form-container { margin: 12px; padding: 16px; }
+      .intro-text { margin: 12px; padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Revive NUB Discipleship Training Course Registration</h1>
+  </header>
+
+  <!-- Logo / Image -->
+  <img class="RDTC-25" src="RDTC-25 (MINISTERS)@3x.jpg" alt="RDTC Logo">
+
+  <!-- Introductory write-up box -->
+  <div class="intro-text">
+    <p>
+      Welcome to the Revive NUB Discipleship Training Course (RDTC). This course is designed to build and equip believers with the right foundation, sound doctrine, and practical skills for effective ministry and kingdom service.
+    </p>
+    <p>
+      Please complete the registration form below with accurate details. Ensure that your Letter of Motivation clearly states your reasons for joining the program and what you hope to achieve.
+    </p>
+  </div>
+
+  <!-- Registration form (posts to your Google Form) -->
+  <div class="form-container">
+    <h2>Register Now</h2>
+
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLScG33IbI5dRRXqIMBvM7V2Ah4jVwBq4HX2pd8PW9wObpOKN-g/formResponse"
+          method="POST" target="_blank">
+
+      <label for="Year">Year</label>
+      <input id="Year" name="entry.54861499" required>
+
+      <label for="Version">Select Version model</label>
+      <select id="Version" name="entry.2040061746" required>
+        <option value="">-- Choose Version Model --</option>
+        <option value="VERSION 1.0 (JANUARY-APRIL)">Version Model 1.0 (Jan–Apr)</option>
+        <option value="VERSION 2.0 (MAY-AUGUST)">Version Model 2.0 (May–Aug)</option>
+        <option value="VERSION 3.0 (SEPTEMBER-DECEMBER)">Version Model 3.0 (Sep–Dec)</option>
+      </select>
+
+      <label for="fullname">Full Name</label>
+      <input id="fullname" name="entry.638254454" required>
+
+      <label for="email">Email Address</label>
+      <input id="email" type="email" name="entry.1054346286" required>
+
+      <label for="dob">Date of Birth</label>
+      <input id="dob" type="date" name="entry.357862401" required>
+
+      <label for="occupation">Occupation</label>
+      <input id="occupation" name="entry.1196143712" required>
+
+      <label for="phone">Phone Number</label>
+      <input id="phone" name="entry.1885143393" required>
+
+      <label for="meetingDay">Select training day</label>
+      <select id="meetingDay" name="entry.1679234927" required>
+        <option value="">-- Choose --</option>
+        <option value="FRIDAY 3:00PM">Friday 3:00pm</option>
+        <option value="SUNDAY 3:00PM">Sunday 3:00pm</option>
+      </select>
+
+      <label for="motivation">Letter of Motivation</label>
+      <textarea id="motivation" name="entry.1280003341" rows="4"></textarea>
+
+      <!-- ===== Course write-up (inserted BEFORE submit button) ===== -->
+      <div class="course-detail" aria-hidden="false">
+        <h3>📖 Course Detail</h3>
+        <p><strong>3 Months Program (12 Weeks)</strong></p>
+
+        <p><strong>1. Pneumatology</strong></p>
+        <ul>
+          <li>Redemption Realities (RR 101)</li>
+          <li>The Holy Spirit (THS 102)</li>
+          <li>Priesthood (Prayer & Fasting) (PPF 103)</li>
+          <li>Character School (CS 104)</li>
+        </ul>
+
+        <p><strong>2. Leadership</strong></p>
+        <ul>
+          <li>Concept of Leadership (COL 201)</li>
+          <li>Principle of Leadership (POL 202)</li>
+          <li>Visions (VSS 203)</li>
+        </ul>
+
+        <p><strong>3. Reformation</strong></p>
+        <ul>
+          <li>Identity (ID 301)</li>
+          <li>Identity Mindset & Strongholds (MS 302)</li>
+          <li>Time Management & Graph of Life (TMG 303)</li>
+          <li>Human Resource (HR 304)</li>
+          <li>Physical & Health Education (PHE 305)</li>
+        </ul>
+
+        <p><strong>4. Service</strong></p>
+        <ul>
+          <li>Concept of Ministry (COM 401)</li>
+          <li>Kingdom Advancement (KAD 402)</li>
+          <li>Mountains of Influence (MOI 403)</li>
+          <li>Evangelism (EVA 404)</li>
+        </ul>
+
+        <p><strong>5. Finance</strong></p>
+        <ul>
+          <li>Concept of Finance (COF 501)</li>
+          <li>Pillars of Wealth (POW 502)</li>
+          <li>Academics of Money (AOM 503)</li>
+          <li>How to Start a Business (HSB 504)</li>
+        </ul>
+      </div>
+      <!-- ============================================================ -->
+
+      <button type="submit">Submit Registration</button>
+    </form>
+  </div>
+
+</body>
+</html>

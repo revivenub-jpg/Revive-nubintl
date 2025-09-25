@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <title>Login | Revive NUB</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #ff0000, #ff6a00);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .login-logo {
+      height: 120px;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+      font-size: 28px;
+      font-family: 'Times New Roman', Times, serif;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 12px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #ff0000, #ff6a00);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .google-btn {
+      background: #db4437;
+    }
+
+    .switch {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .switch a {
+      color: #ff4500;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .switch a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Revive NUB – Login / Sign Up
+  </header>
+
+  <div class="container">
+    <img class="login-logo" src="revive log.png" alt="Logo">
+    <h2 id="formTitle">Welcome</h2>
+
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+
+    <button id="loginBtn">Login</button>
+    <button id="signupBtn">Sign Up</button>
+    <button class="google-btn" id="googleLoginBtn">Sign in with Google</button>
+
+    <div class="switch">
+      <p id="switchText">Don’t have an account? <a href="#" id="toggleForm">Sign Up</a></p>
+    </div>
+  </div>
+
+  <!-- Firebase SDK v12 -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+    import { getAuth, 
+             createUserWithEmailAndPassword, 
+             signInWithEmailAndPassword, 
+             GoogleAuthProvider, 
+             signInWithPopup } 
+    from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+    // ✅ Your Firebase project config
+    const firebaseConfig = {
+      apiKey: "AIzaSyC3hDuyRtWQ9exNSGOAXqldc6HCkX49rH4",
+      authDomain: "revive-nub-etc.firebaseapp.com",
+      projectId: "revive-nub-etc",
+      storageBucket: "revive-nub-etc.appspot.com",
+      messagingSenderId: "667364246928",
+      appId: "1:667364246928:web:57926a6d871032a8019f15",
+      measurementId: "G-HC1C5KJ127"
+    };
+
+    // 🔥 Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    // Elements
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const loginBtn = document.getElementById("loginBtn");
+    const signupBtn = document.getElementById("signupBtn");
+    const googleLoginBtn = document.getElementById("googleLoginBtn");
+
+    // Login
+    loginBtn.addEventListener("click", async () => {
+      const email = emailInput.value;
+      const password = passwordInput.value;
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        alert("Login successful: " + userCredential.user.email);
+        window.location.href = "home.html"; // ✅ redirect after login
+      } catch (error) {
+        alert(error.message);
+      }
+    });
+
+    // Sign Up
+    signupBtn.addEventListener("click", async () => {
+      const email = emailInput.value;
+      const password = passwordInput.value;
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        alert("Account created: " + userCredential.user.email);
+        window.location.href = "home.html";
+      } catch (error) {
+        alert(error.message);
+      }
+    });
+
+    // Google Login
+    googleLoginBtn.addEventListener("click", async () => {
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+        alert("Google sign-in successful: " + user.email);
+        window.location.href = "home.html";
+      } catch (error) {
+        alert(error.message);
+      }
+    });
+  </script>
+</body>
+</html>
